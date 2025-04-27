@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script src="jquery-3.7.1.js"></script> 
+  </head>
+  <body>
+    take an image and perform sliding and fading elements in and out of view
+
+slide up 
+Slide down
+slide toggle
+fade in
+fade out 
+fade to
+<button id="do"> Slide </button>
+<button id="doFade"> Fade </button>
+<img id="slide" src="iPhone 16 - 9.png" width="20%">
+
+  </body>
+  <script>
+    $(document).ready(function(){            
+        $('#do').click(function(){
+            
+            $("#slide").slideUp(2000).slideDown(3000)
+            
+        })
+        $('#doFade').click(function(){
+            
+            $("#slide").fadeOut(2000).fadeIn(2000)
+            
+        })
+    })
+</script>
+</html>
+
+

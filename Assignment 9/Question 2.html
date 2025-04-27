@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>jQuery Form Effects</title>
+    <script src="jquery-3.7.1.js"></script>
+    <style>
+      .container {
+        margin: 20px;
+      }
+      .serial-input {
+        width: 50px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>Toggle All Checkboxes</h3>
+      <a href="#" id="toggle-checkboxes">Select/Deselect All</a>
+      <br><br>
+      <input type="checkbox" class="chkbox"> Checkbox 1
+      <input type="checkbox" class="chkbox"> Checkbox 2
+      <input type="checkbox" class="chkbox"> Checkbox 3
+      <input type="checkbox" class="chkbox"> Checkbox 4
+    </div>
+
+    <div class="container">
+      <h3>Auto Tabbing for Serial Number</h3>
+      <input type="text" class="serial-input" maxlength="4" id="input1">
+      <input type="text" class="serial-input" maxlength="4" id="input2">
+      <input type="text" class="serial-input" maxlength="4" id="input3">
+      <input type="text" class="serial-input" maxlength="4" id="input4">
+    </div>
+
+    <script>
+      $(document).ready(function(){
+        let allChecked = false;
+        $('#toggle-checkboxes').click(function(){
+          allChecked = !allChecked;
+          $('.chkbox').prop('checked', allChecked);
+        });
+
+        $('.serial-input').keyup(function(){
+          if (this.value.length == this.maxLength) {
+            $(this).next('.serial-input').focus();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

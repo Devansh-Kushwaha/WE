@@ -1,0 +1,26 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.js"></script> 
+<script> 
+$(document).ready(function(){
+  $("#clear").click(function(){
+    $(".checkme").prop('checked',false);
+  });
+});
+</script>
+</head>
+<body>
+    selection and deselection of all checkboxes using a single link by toggle 
+    <input class="checkme" type="checkbox"> First
+    <input class="checkme" type="checkbox"> second
+    <input class="checkme" type="checkbox"> third
+    <button id="clear">Clear All</button>
+</input>
+</body>
+</html>

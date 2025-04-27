@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizontal Image Slider</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .slider-container {
+            width: 60%;
+            overflow-x: auto;
+            white-space: nowrap;
+            border: 2px solid #ccc;
+            padding: 10px;
+            margin: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #888 #f1f1f1;
+        }
+        .slider-container::-webkit-scrollbar {
+            height: 10px;
+        }
+        .slider-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+        .slider-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .slider {
+            display: inline-flex;
+        }
+        .slider img {
+            width: 200px;
+            height: 150px;
+            margin-right: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .slider img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Horizontal Image Slider</h2>
+    
+    <div class="slider-container">
+        <div class="slider">
+            <img src="../Assignment 4/src/1.png" alt="Image 1">
+            <img src="../Assignment 4/src/2.png" alt="Image 2">
+            <img src="../Assignment 4/src/3.png" alt="Image 3">
+            <img src="../Assignment 4/src/4.png" alt="Image 4">
+            <img src="../Assignment 4/src/5.png" alt="Image 5">
+            <img src="../Assignment 4/src/6.png" alt="Image 6">
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $(".slider-container").on("wheel", function(event) {
+                event.preventDefault();
+                $(this).scrollLeft($(this).scrollLeft() + event.originalEvent.deltaY);
+            });
+        });
+    </script>
+
+</body>
+</html>

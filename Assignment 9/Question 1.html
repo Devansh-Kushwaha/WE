@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script src="jquery-3.7.1.js"></script>
+    <style>
+      #image-container img {
+        position: absolute;
+        width: 300px;
+        height: auto;
+        display: none;
+      }
+      #image-container img:first-child {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="hide" style="height: fit-content; width:fit-content"> HIDE </button>
+    <button id="show" style="height: fit-content; width:fit-content"> SHOW </button>
+    <button id="doSlide" style="height: fit-content; width:fit-content"> SLIDE </button>
+    <button id="doFade" style="height: fit-content; width:fit-content"> FADE </button>
+    <P>
+        Question 1
+    </P>
+
+    <div id="image-container">
+      <img src="1.png" alt="Image 1">
+      <img src="2.png" alt="Image 2">
+      <img src="3.png" alt="Image 3">
+      <img src="4.png" alt="Image 4">
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('#hide').click(function(){
+                $("p").hide();
+            })
+            $('#show').click(function(){
+                $("p").show();
+            })
+            $('#doSlide').click(function(){
+                $("p").slideUp(2000).slideDown(3000)
+            })
+            $('#doFade').click(function(){
+                $("p").fadeOut(2000).fadeIn(2000)
+            })
+
+            let images = $("#image-container img");
+            let index = 0;
+
+            images.hover(function() {
+                let nextIndex = (index + 1) % images.length;
+                $(images[index]).fadeOut(1000, function() {
+                    $(images[nextIndex]).fadeIn(1000);
+                });
+                index = nextIndex;
+            });
+        });
+    </script>
+  </body>
+</html>

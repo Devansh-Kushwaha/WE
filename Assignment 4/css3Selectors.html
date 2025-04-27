@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+<style>
+    p {
+        text-align: center;
+        color: red;
+      }
+      #para1 {
+        text-align: left;
+        color: blue;
+      }
+      .center {
+        text-align: right;
+        color: green;
+      }
+      p.center {
+        text-align: center;
+        color: rgb(254, 142, 160);
+      }
+      * {
+        text-align: center;
+        color: navy;
+      }
+</style>  
+</head>
+  <body>
+
+    <p>
+        This is a paragraph of text using tag selector.
+    </p>
+    <p id="para1">
+        This is a paragraph of text having an ID="para1". Here we have used an ID selector
+     </p>
+    <div class="center">
+        This is a division of text having an class="center". Here we have used a class selector
+     </div>
+    <p class="center">
+        This is a paragraph of text having an class="center". Here we have used a combination of class selector and tag selector to select p tag with class="center"
+    </p>
+
+    I am not under any CSS specified tag, so my properties are decided by the * universal document properties
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transition: width 2s;
+            padding: 10px;
+            border: 1px solid black
+          }
+          div:hover {
+            width: 300px;
+          }
+          div {
+            transition-delay: 1s;
+            transition: width 2s, height 4s transform 2s;
+          }
+          #div1 {transition-timing-function: linear;}
+#div2 {transition-timing-function: ease;}
+#div3 {transition-timing-function: ease-in;}
+#div4 {transition-timing-function: ease-out;}
+#div5 {transition-timing-function: ease-in-out;}
+
+    </style>
+  </head>
+  <body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+    <div id="div3"></div>
+    <div id="div4"></div>
+    <div id="div5"></div>
+
+    
+  </body>
+</html>

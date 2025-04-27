@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Sites</title>
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+        rel="stylesheet"
+    />
+    <style>
+        body {
+            background-image: url('./src/image1.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        .navbar-logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .navbar-links {
+            padding-right: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .navbar-links a:hover {
+            color: #939caa;
+        }
+
+        .slogan {
+            margin-top: 150px;
+            margin-bottom: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: aliceblue;
+        }
+
+        .card {
+            border-bottom: solid #939caa;
+            border-collapse: collapse;
+            width:80%;
+        }
+
+        .truncate {
+            max-height: 100px;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .expand {
+            max-height: none;
+        }
+
+        .card-body {
+            display: flex;
+        }
+
+        #boxContainer {
+            background-color: #939caa9f;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 5px;
+            padding-top: 10px;
+            padding-left: 30px;
+            padding-right: 30px;
+            border-radius: 10px;
+        }
+        .truncate{
+            padding-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-logo"><img src="./src/logo1.png" height="23px"></div>
+        <div class="navbar-links">
+            <a href="./HomePage.html">Home</a>
+            <a style="color: #939caa" href="./Heritage.html">Heritage</a>
+            <a href="./Hotel.html">Hotel Booking</a>
+            <a href="./Gallery.html">Gallery</a>
+        </div>
+    </div>
+    <div class="slogan">
+        <div>
+            Your Trip Starts Here
+        </div>
+    </div>
+    <div id="boxContainer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function createExpandableBox(title, content, image, id) {
+            return `
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <h5>${title}</h5>
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <div class="truncate">
+                                <p>${content}</p>
+                            </div>
+                            <a 
+                                href="details.html?id=${id}" 
+                                class="btn btn-primary mt-3">
+                                Read More
+                            </a>
+                        </div>
+                        <div>
+                            <img src="./src/${image}.jpg" width="225" height="180" alt="${image}" loading="lazy" style="margin-right:10px; border-radius:8px"/>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        const boxes = [
+            {
+                title: 'ISKCON Temple, Kanpur - A Spiritual Haven',
+                content: 'The ISKCON Temple in Kanpur, also known as the Sri Sri Radha Madhav Mandir, is a magnificent spiritual center dedicated to Lord Krishna and Radha. Managed by the International Society for Krishna Consciousness (ISKCON), the temple serves as a hub for spiritual enlightenment, cultural heritage, and devotion.',
+                image: 'iskcon-kanpur',
+                id: 'iskcon-temple'
+            },
+            {
+                title: 'Anandeshwar Temple, Kanpur - A Sacred Shrine by the Ganges',
+                content: 'The Anandeshwar Temple is one of the most revered temples in Kanpur, dedicated to Lord Shiva, also known as "Anandeshwar Mahadev." Nestled on the tranquil banks of the River Ganga, this temple holds immense spiritual and historical significance, attracting devotees from far and wide.',
+                image: 'anandeshwar-temple',
+                id: 'anandeshwar-temple'
+            },
+            {
+                title: 'JK Temple, Kanpur - A Marvel of Devotion and Architecture',
+                content:
+                    'The Shri Radha Krishna Temple, also known as the JK Temple, is a prominent landmark in Kanpur. Built by the JK Trust (founded by the industrialist Juggilal Kamlapat Singhania), this temple is dedicated to Lord Krishna and Radha. It is renowned for its exquisite architecture, spiritual ambiance, and tranquil surroundings.',
+                image:'jk-temple',
+                id:'jk-temple'
+            },
+            {
+                title: 'Valmiki Ashram Temple, Kanpur - A Mythological Gem',
+                content:
+                    'The Valmiki Ashram Temple, located near Bithoor in Kanpur, is a sacred site deeply rooted in Indian mythology. It is believed to be the place where Maharishi Valmiki, the revered sage and author of the Ramayana, lived and composed the epic. This temple holds great historical and spiritual significance, attracting devotees and history enthusiasts alike.',
+                image:'valmiki-ashram',
+                id:'valmiki-ashram'
+            },
+            {
+                title: 'Kanpur Memorial Church - A Historical Landmark',
+                content:
+                    'The Kanpur Memorial Church, also known as the All Souls Memorial Church, is one of the most significant historical and architectural landmarks in Kanpur. Built in memory of the British soldiers who died during the Indian Rebellion of 1857, it stands as a symbol of both the British colonial presence and the historical importance of Kanpur during the First War of Independence.',
+                image:'kanpur-memorial',
+                id:'kanpur-memorial'
+            },
+            {
+                title: 'Brahmavart Ghat',
+                content:
+                    'Brahmavart Ghat is one of the most sacred and significant ghats located on the banks of the River Yamuna in Bithoor, near Kanpur. This ghat holds deep spiritual and mythological importance, particularly in the context of Hinduism. It is revered for its association with Lord Brahma and its connection to the Ramayana and other ancient texts.',
+                image:'b-ghat',
+                id:'b-ghat'
+            },
+            {
+                title: 'Bhitargaon Temple',
+                content:
+                    'The Bhitargaon Temple, located near Bhitargaon village in the Kanpur district of Uttar Pradesh, is a significant historical and religious monument. This ancient temple, dedicated to Lord Vishnu, is renowned for its exceptional architecture and its association with the Gupta period (around 5th century CE), making it one of the oldest brick temples in India.',
+                image:'b-temple',
+                id:'b-temple'
+            },
+            {
+                title: 'Jain Glass Temple, Kanpur - A Splendid Religious Marvel',
+                content:
+                    'The Jain Glass Temple in Kanpur is one of the most unique and visually stunning temples in the region. Known for its exquisite glasswork and intricate artistry, it is dedicated to the Jain Tirthankaras. The temple is renowned for its beautiful interior that features stunning glass mosaics and mirrors, creating an enchanting and serene environment for devotees and visitors alike.',
+                image:'jain-glass',
+                id:'jain-glass'
+            },
+            {
+                title: 'Jagannath Temple, Kanpur - A Sacred Pilgrimage Destination',
+                content:
+                    'The Jagannath Temple in Kanpur is a revered Hindu temple dedicated to Lord Jagannath, a form of Lord Vishnu. The temple is an important religious site in Kanpur and holds special significance for devotees of Lord Jagannath, particularly those who follow the traditions of the Odisha region, where the famous Jagannath Puri Temple is located.',
+                image:'jagannath-temple',
+                id:'jagannath-temple'
+            },
+        ];
+
+        const boxContainer = document.getElementById('boxContainer');
+        boxes.forEach((box) => {
+            boxContainer.innerHTML += createExpandableBox(box.title, box.content, box.image, box.id);
+        });
+    </script>
+</body>
+</html>

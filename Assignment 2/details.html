@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heritage Site Details</title>
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+        rel="stylesheet"
+    />
+    <style>
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        .navbar-logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .navbar-links {
+            padding-right: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .navbar-links a:hover {
+            color: #939caa;
+        }
+        body {
+            background-color: #d4e4f6;
+            padding: 50px;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            color: white;
+        }
+        .content {
+            margin-top: 80px;
+        }
+        h2{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        .maincontent{
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar-logo">
+            <img src="./src/logo1.png" height="23px">
+        </div>
+        <div class="navbar-links">
+            <a href="./HomePage.html">Home</a>
+            <a href="./Heritage.html">Heritage</a>
+            <a href="./Hotel.html">Hotel Booking</a>
+            <a href="./Gallery.html">Gallery</a>
+        </div>
+    </div>
+    <div class="content">
+        <div id="siteDetails"></div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const siteId = urlParams.get('id');
+
+        const heritageSites = {
+            'iskcon-temple': {
+                title: 'ISKCON Temple, Kanpur - A Spiritual Haven',
+                content: 'The ISKCON Temple in Kanpur, also known as the Sri Sri Radha Madhav Mandir, is a magnificent spiritual center dedicated to Lord Krishna and Radha. Managed by the International Society for Krishna Consciousness (ISKCON), the temple serves as a hub for spiritual enlightenment, cultural heritage, and devotion.',
+                image: 'iskcon-kanpur',
+                ab:'The temple boasts stunning architecture, blending traditional Indian temple styles with modern aesthetics. Intricate carvings and sculptures depict scenes from the life of Lord Krishna, adding to its charm.',
+                d:'The main deities worshipped here are Sri Sri Radha Madhav, along with Lord Krishna, Lord Balaram, and Lord Jagannath.The beautifully adorned idols are a sight to behold, radiating divinity and serenity.',
+                sa:'Regular kirtans (devotional singing), bhajans, and aarti ceremonies fill the atmosphere with spiritual energy.Bhagavad Gita classes and discourses on Vedic literature are conducted for devotees and visitors.',
+                f:'The temple celebrates festivals like Janmashtami, Radhashtami, Govardhan Puja, and Rath Yatra with grandeur and devotion, attracting thousands of devotees.These events feature cultural programs, dramas, and traditional dances that showcase Krishnas pastimes.',
+                fa:'The temple complex includes a prasadam hall serving delicious vegetarian food, a gift shop, and an area for meditation and relaxation.The serene surroundings and well-maintained gardens enhance the spiritual experience.'
+                ,
+                cs:'ISKCON Kanpur engages in various charitable activities, including food distribution programs and educational initiatives, embodying the principle of seva (service).',
+                wv:'The ISKCON Temple in Kanpur is not just a place of worship but also a spiritual retreat where visitors can immerse themselves in the teachings of Lord Krishna, experience peace, and witness a vibrant expression of Indian culture. It’s a perfect destination for those seeking solace, devotion, and a connection with divinity amidst a serene and uplifting environment.'
+
+
+            },
+            'anandeshwar-temple': {
+                title: 'Anandeshwar Temple, Kanpur - A Sacred Shrine by the Ganges',
+                content: 'The Anandeshwar Temple is one of the most revered temples in Kanpur, dedicated to Lord Shiva, also known as "Anandeshwar Mahadev." Nestled on the tranquil banks of the River Ganga, this temple holds immense spiritual and historical significance, attracting devotees from far and wide.',
+                image: 'anandeshwar-temple',
+                ab:'The temple architecture reflects traditional Indian design, featuring intricately carved domes, pillars, and sculptures of various deities. The sacred sanctum houses the Shivlinga, adorned with flowers and offerings.',
+                d:'The temple enshrines a sacred Shivlinga, believed to be self-manifested (swayambhu) and highly revered by devotees. It is a major pilgrimage spot for followers of Shaivism and Hindu devotees seeking blessings from Lord Shiva.',
+                sa:'Daily aarti and puja rituals create a divine atmosphere. Many devotees perform Ganga snan (a holy dip in the Ganges) before offering prayers at the temple, as it is believed to purify the soul.',
+                f:'The temple comes alive during Mahashivaratri, a major festival celebrated with grandeur, where thousands of devotees gather to offer prayers and perform rituals. Special Rudrabhishekam (ritual bathing of the Shivlinga) ceremonies are held, accompanied by devotional chants and bhajans. Other festivals like Shravan Maas, Nag Panchami, and Makar Sankranti are also celebrated with enthusiasm.',
+                cs:'Anandeshwar Temple is not just a spiritual center but also a hub for cultural and religious activities in Kanpur.The temple hosts various charitable initiatives, including food distribution for the underprivileged.'
+                ,wv:"The Anandeshwar Temple offers a perfect blend of spirituality, serenity, and devotion. Its riverside location enhances its allure, providing visitors with a peaceful environment to connect with the divine. Whether you seek blessings, inner peace, or simply wish to witness the grandeur of Lord Shiva's worship, Anandeshwar Temple is a must-visit destination in Kanpur."
+
+            },
+            'jk-temple':{
+                title: 'JK Temple, Kanpur - A Marvel of Modern Architecture',
+                content: 'Shri Radha Krishna Temple, also known as the J.K. Temple, is a stunning temple in Kanpur, India, built in the 19th century. It is a beautiful example of modern architecture, blending Indian and European styles.',
+                image: 'jk-temple',
+                ab:'The temple is a masterpiece that blends traditional Indian temple design with modern architecture. Its stunning marble structure is adorned with intricate carvings and sculptures depicting scenes from Hindu mythology. The temple complex is surrounded by lush green gardens and water fountains, creating a serene environment.',
+                d:'The temple is dedicated to Lord Krishna and Radha, symbolizing divine love and devotion. Other shrines within the temple complex house idols of Lord Lakshmi Narayan, Lord Shiva and Parvati, and Lord Hanuman.',
+                sa:'It is a popular destination for devotees and tourists, offering a peaceful atmosphere for prayer and meditation. Daily aarti and bhajan sessions create a divine ambiance, enhancing the spiritual experience.',
+                f:'The temple celebrates Janmashtami, the birth anniversary of Lord Krishna, with great enthusiasm. Thousands of devotees gather for special prayers, cultural performances, and bhajans. Festivals like Radhashtami, Diwali, and Holi are celebrated with grandeur.',
+                fa:'The temple complex is well-maintained, with clean surroundings and seating areas for visitors. Illuminated at night, the temple looks even more magnificent, attracting both devotees and photography enthusiasts.'
+                ,wv:"The Shri Radha Krishna Temple (JK Temple) is not only a place of worship but also a testament to India's rich cultural and spiritual heritage. Its architectural brilliance, coupled with a serene ambiance, makes it an ideal destination for those seeking inner peace and divine blessings. Whether you are a devotee or a traveler, this iconic temple is a must-visit in Kanpur."
+                
+            },
+            'valmiki-ashram':{
+                title: 'Valmiki Ashram Temple, Kanpur - A Mythological Gem',
+                content: 'The Valmiki Ashram Temple, located near Bithoor in Kanpur, is a sacred site deeply rooted in Indian mythology. It is believed to be the place where Maharishi Valmiki, the revered sage and author of the Ramayana, lived and composed the epic. This temple holds great historical and spiritual significance, attracting devotees and history enthusiasts alike.',
+                image: 'valmiki-ashram',
+                ab:'The temple is a simple yet serene structure that reflects traditional Indian architecture. Surrounded by greenery, it provides a peaceful atmosphere for prayer and meditation.',
+                sa:'The temple is a tranquil space where devotees can offer prayers and immerse themselves in the teachings of the Ramayana. The calm surroundings make it an ideal spot for meditation and reflection.',
+                f:'Special events and rituals are organized during Ram Navami and Diwali, attracting a large number of devotees. The temple also celebrates Valmiki Jayanti, the birth anniversary of Maharishi Valmiki, with devotion and enthusiasm.'
+                ,wv:"The Valmiki Ashram Temple is a must-visit destination for those seeking a blend of spirituality, history, and mythology. Its association with the Ramayana and the serene surroundings make it a peaceful retreat for devotees and travelers. Whether you are a believer or a history enthusiast, the temple offers a unique glimpse into India's ancient heritage."   
+            }
+            ,
+            'kanpur-memorial':{
+                title: 'Kanpur Memorial Church - A Historical Landmark',
+                content: 'The Kanpur Memorial Church, also known as the All Souls Memorial Church, is one of the most significant historical and architectural landmarks in Kanpur. Built in memory of the British soldiers who died during the Indian Rebellion of 1857, it stands as a symbol of both the British colonial presence and the historical importance of Kanpur during the First War of Independence.',
+                image: 'kanpur-memorial',
+                ab:'The church is an example of Gothic Revival architecture, with its impressive stained-glass windows, pointed arches, and tall spires. The structure features intricate carvings and memorial plaques dedicated to the soldiers who lost their lives in the siege. The surrounding gardens are well-maintained, adding to the churchs peaceful and serene ambiance.',
+                sa:'While it is primarily a historical memorial, the church also serves as a place of worship for the Christian community in Kanpur. The church conducts regular Sunday services, weddings, and special prayers, making it an active part of the local Christian community.'
+                ,wv:"The Kanpur Memorial Church is a must-visit for history enthusiasts, architecture lovers, and those interested in learning about the 1857 rebellion and its aftermath. The church provides a unique insight into the colonial era, the sacrifices made during the rebellion, and the complex history of British-Indian relations. Visiting this church offers not only a historical experience but also a peaceful environment for reflection and remembrance. Whether you're drawn by the rich history, the architectural beauty, or the quiet surroundings, this church stands as a testament to a pivotal moment in India's struggle for independence."
+                
+            
+            },
+            'jk-temple':{
+                title: 'JK Temple, Kanpur - A Marvel of Modern Architecture',
+                content: 'Shri Radha Krishna Temple, also known as the J.K. Temple, is a stunning temple in Kanpur, India, built in the 19th century. It is a beautiful example of modern architecture, blending Indian and European styles.',
+                image: 'jk-temple',
+                ab:'The temple is a masterpiece that blends traditional Indian temple design with modern architecture. Its stunning marble structure is adorned with intricate carvings and sculptures depicting scenes from Hindu mythology. The temple complex is surrounded by lush green gardens and water fountains, creating a serene environment.',
+                d:'The temple is dedicated to Lord Krishna and Radha, symbolizing divine love and devotion. Other shrines within the temple complex house idols of Lord Lakshmi Narayan, Lord Shiva and Parvati, and Lord Hanuman.',
+                sa:'It is a popular destination for devotees and tourists, offering a peaceful atmosphere for prayer and meditation. Daily aarti and bhajan sessions create a divine ambiance, enhancing the spiritual experience.',
+                f:'The temple celebrates Janmashtami, the birth anniversary of Lord Krishna, with great enthusiasm. Thousands of devotees gather for special prayers, cultural performances, and bhajans. Festivals like Radhashtami, Diwali, and Holi are celebrated with grandeur.',
+                fa:'The temple complex is well-maintained, with clean surroundings and seating areas for visitors. Illuminated at night, the temple looks even more magnificent, attracting both devotees and photography enthusiasts.'
+                ,wv:"The Shri Radha Krishna Temple (JK Temple) is not only a place of worship but also a testament to India's rich cultural and spiritual heritage. Its architectural brilliance, coupled with a serene ambiance, makes it an ideal destination for those seeking inner peace and divine blessings. Whether you are a devotee or a traveler, this iconic temple is a must-visit in Kanpur."
+                
+            
+            },
+            'b-ghat':{
+                title: 'Brahmavart Ghat - A Sacred and Spiritual Destination',
+                content: 'Brahmavart Ghat is one of the most sacred and significant ghats located on the banks of the River Yamuna in Bithoor, near Kanpur. This ghat holds deep spiritual and mythological importance, particularly in the context of Hinduism. It is revered for its association with Lord Brahma and its connection to the Ramayana and other ancient texts.',
+                image: 'b-ghat',
+                ab:'The peaceful surroundings of the ghat, with the flowing Yamuna and lush greenery, make it an ideal location for relaxation and contemplation. It offers a tranquil escape from the hustle and bustle of city life, allowing visitors to connect with nature and spirituality',
+                d:'The ghat is not just a religious site but also a cultural hub, where people engage in spiritual activities like satsangs, bhajans, and kirtans (devotional music and chants). During special festivals like Ganga Dussehra, Diwali, and Makar Sankranti, the ghat is beautifully decorated, and rituals are performed with great devotion and enthusiasm.',
+                sa:'Brahmavart Ghat is a popular spot for devotees to take a holy dip in the Yamuna River, which is believed to purify the soul and wash away sins. Pilgrims come here to perform puja (ritual prayers), especially for the peace of ancestors or to fulfill religious vows. The atmosphere is filled with chanting of mantras and prayers, creating a divine aura.',
+                f:'The ghat is an important pilgrimage site for Hindus, especially for those seeking to perform ancestral rites and gain spiritual merit. It is part of the broader pilgrimage circuit of Bithoor, which is also home to other historical and religious landmarks related to Lord Rama and Hindu mythology.'
+                ,wv:"Brahmavart Ghat is a must-visit destination for those interested in experiencing the spiritual essence of India, particularly its rich Hindu traditions. Whether you're a devotee seeking divine blessings, a history enthusiast, or someone in search of peace and tranquility, this sacred ghat offers a unique and serene atmosphere. The combination of mythology, history, spirituality, and natural beauty makes Brahmavart Ghat a deeply significant and peaceful place to visit."
+                
+            
+            },
+            'b-temple':{
+                title: 'Bhitargaon Temple - A Historical Jewel of Kanpur',
+                content: 'The Bhitargaon Temple, located near Bhitargaon village in the Kanpur district of Uttar Pradesh, is a significant historical and religious monument. This ancient temple, dedicated to Lord Vishnu, is renowned for its exceptional architecture and its association with the Gupta period (around 5th century CE), making it one of the oldest brick temples in India.',
+                image: 'b-temple',
+                ab:'The Bhitargaon Temple is built with brick rather than the more common stone, which is rare for temples of its time. The structure features a Shikhara-style temple with a flat roof, unique to the Gupta architectural tradition. The walls of the temple are adorned with sculptures and reliefs depicting various Hindu deities, including Lord Vishnu, and scenes from Hindu mythology. The temple is relatively simple in design but reflects the elegance and precision of Gupta-era craftsmanship.',
+                d:'The temple is dedicated to Lord Vishnu, one of the principal deities in Hinduism, revered as the protector and preserver of the universe. It is an active place of worship, with devotees visiting to offer prayers and seek blessings from Lord Vishnu.',
+                cs:'The Bhitargaon Temple is not only a religious site but also a cultural landmark, reflecting the rich heritage and artistic legacy of ancient India. It is a popular destination for historians, archaeologists, and visitors interested in the ancient Hindu architecture and culture.'
+                ,wv:"The Bhitargaon Temple is a must-visit for those interested in ancient history, archaeology, and religious heritage. Its historical and architectural significance makes it a gem of early Hindu temple architecture, offering visitors a chance to explore the grandeur of the Gupta period. Whether you're a history enthusiast, a spiritual seeker, or someone curious about ancient Indian architecture, the Bhitargaon Temple offers an enriching and peaceful experience. The temple's tranquil atmosphere and historical richness make it a unique destination in the Kanpur region."
+                
+            
+            },
+            'jain-glass':{
+                title: 'Jain Glass Temple, Kanpur - A Splendid Religious Marvel',
+                content: 'The Jain Glass Temple in Kanpur is one of the most unique and visually stunning temples in the region. Known for its exquisite glasswork and intricate artistry, it is dedicated to the Jain Tirthankaras. The temple is renowned for its beautiful interior that features stunning glass mosaics and mirrors, creating an enchanting and serene environment for devotees and visitors alike.',
+                image: 'jain-glass',
+                ab:'The Jain Glass Temple is an example of artistic splendor, showcasing the intricate use of glass, mirrors, and fine craftsmanship. The temple walls and ceilings are adorned with glass panels and mosaic designs, creating a shimmering effect that adds to the temple’s divine atmosphere. The intricate glasswork portrays various scenes from Jain mythology, adding a touch of elegance and magnificence to the temple.',
+                d:'The temple is dedicated to the Jain Tirthankaras, revered spiritual teachers in Jainism. The main deity of the temple is usually Lord Mahavir, the 24th Tirthankara, who is one of the most revered figures in Jainism. The beautifully crafted idols of Lord Mahavir and other Tirthankaras are enshrined within the temple.',
+                sa:'The temple also holds daily aarti and puja rituals, inviting devotees to offer their prayers and seek blessings.',
+                cs:'Jainism places great emphasis on ahimsa (non-violence), satya (truth), and aparigraha (non-possessiveness). The temple stands as a beacon of these values, offering a place for reflection and adherence to the Jain principles. The temple is a significant pilgrimage site for Jains and is an excellent representation of Jain architecture and culture.',
+                f:'The Jain Glass Temple celebrates major Jain festivals, including Mahavir Jayanti (the birth anniversary of Lord Mahavir), Paryushana, and Diwali, which are marked by special prayers, bhajans, and processions.'
+                ,wv:"The Jain Glass Temple is a must-visit for those interested in Jainism, art, and architecture. Its distinctive glasswork and peaceful atmosphere make it a standout destination for visitors looking for spiritual solace, cultural insight, or a visually stunning experience. Whether you're a devotee of Jainism or simply an admirer of fine craftsmanship and serene environments, the Jain Glass Temple offers a unique and enriching experience. The temple stands as a shining example of how spirituality and art can come together to create a lasting impact."
+            },
+            'jagannath-temple':{
+                title: 'Jagannath Temple, Kanpur - A Sacred Pilgrimage Destination',
+                content: 'The Jagannath Temple in Kanpur is a revered Hindu temple dedicated to Lord Jagannath, a form of Lord Vishnu. The temple is an important religious site in Kanpur and holds special significance for devotees of Lord Jagannath, particularly those who follow the traditions of the Odisha region, where the famous Jagannath Puri Temple is located.',
+                image: 'jagannath-temple',
+                ab:'The architecture of the Jagannath Temple in Kanpur is designed to resemble that of the Jagannath Temple in Puri, with its distinctive Shikhara-style architecture. The structure is built with stone and is adorned with intricate carvings of deities, scenes from Hindu scriptures, and decorative motifs. The temple is surrounded by a spacious courtyard, where devotees gather to participate in various religious activities and rituals.',
+                d:'The temple is primarily dedicated to Lord Jagannath, along with his siblings Lord Balabhadra and Goddess Subhadra. The deities are housed in the temples sanctum, where devotees offer prayers and seek divine blessings. Lord Jagannath is a central figure in the Vaishnavite tradition, known for his compassionate and merciful nature. The temple reflects his role as a protector of devotees and a symbol of unity and love.',
+                sa:'The Jagannath Temple offers a serene and spiritually uplifting atmosphere. Devotees come to seek the blessings of Lord Jagannath, meditate, and participate in daily prayers, aartis, and bhajans (devotional songs). The temple is considered a place for not only spiritual fulfillment but also for promoting harmony and devotion.',
+                f:'The Rath Yatra or Chariot Festival is the most significant event celebrated at the Jagannath Temple. During this annual festival, the deities of Lord Jagannath, Lord Balabhadra, and Goddess Subhadra are placed on grand chariots and pulled by devotees through the streets in a colorful procession. This festival attracts thousands of devotees, and the temple grounds are filled with vibrancy, devotion, and enthusiasm. The Rath Yatra is a symbol of unity, as people from all walks of life come together to participate in the festivities. In addition to Rath Yatra, the temple celebrates various other Hindu festivals, including Janmashtami (the birth of Lord Krishna), Diwali, and Makar Sankranti. Special prayers, processions, and cultural performances mark these occasions, making the temple a lively and vibrant center of worship. During Rath Yatra, the temple becomes a focal point for thousands of pilgrims and visitors who come to participate in the grand procession and celebrations.',
+                cs:'The Jagannath Temple not only serves as a spiritual center but also plays an important role in promoting cultural traditions and community values. The temple encourages devotion, unity, and compassion, qualities embodied by Lord Jagannath. The temple also hosts cultural programs like dance, music, and drama, which are closely tied to the religious festivals and rituals.'
+                ,wv:"The Jagannath Temple in Kanpur is a must-visit for devotees of Lord Jagannath and anyone interested in exploring the rich traditions of Hinduism. The temple’s spiritual significance, its architectural beauty, and the grand celebrations of festivals like Rath Yatra make it a vibrant and important destination. Whether you're seeking divine blessings, a cultural experience, or an opportunity to witness one of the most revered festivals of Hinduism, the Jagannath Temple offers a unique and enriching experience for all."
+                
+            }
+        };
+
+        const site = heritageSites[siteId];
+
+        if (site) {
+            document.getElementById('siteDetails').innerHTML = `
+                <h2>${site.title}</h2>
+                <div class="maincontent">
+                    <div style="padding:10px">
+                        
+                    
+                    <p>${site.content}</p>
+                    <p style="font-size:24px"><strong>Key Features:</strong></p>
+                <ol>
+                <li>
+                <p ><strong>Architectural Beauty:</strong></p>
+                <p>${site.ab}</p>
+                </li> 
+                <li>
+                <p><strong>Deities:</strong></p>
+                <p>${site.d}</p>
+                </li> 
+                <li>
+                <p><strong>Spiritual Activities:</strong></p>
+                <p>${site.sa}</p>
+                </li> 
+                <li>
+                <p><strong>Festivals:</strong></p>
+                <p>${site.f}</p>
+                </li> 
+                <li>
+                <p><strong>Facilities:</strong></p>
+                <p>${site.fa}</p>
+                </li> 
+                <li>
+                <p><strong>Community Services:</strong></p>
+                <p>${site.cs}</p>
+                </li> 
+            </ol>
+            <p><b>Why Visit?</b></p>
+            <p>${site.wv}</p>
+                </div>
+                <img style="border-radius:10px" src="./src/${site.image}.jpg" alt="${site.image}" width="500" height="400" />
+                
+
+                </div>
+                
+
+            `;
+        } else {
+            document.getElementById('siteDetails').innerHTML = '<p>Site not found.</p>';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Cotextual Menu with jQuery</title>
+    <script src="jquery-3.7.1.js"></script> 
+    <style>
+        body{
+            font-family: Arial,sans-serif;
+        }
+        .menu{
+            width: 200px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: #f9f9f9;
+        }
+        .menu-item{
+            padding: 10px;
+            cursor:pointer
+        }
+        .meny-item:hover{
+            background:#ddd;
+        }
+        .info{
+            margin-top: 20px;
+            padding:10px;
+            border: 1px solid #ccc;
+            background: #eef;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="menu">
+        <div class="menu-item" data-info="This is Item 1">Item 1</div>
+        <div class="menu-item" data-info="This is Item 2">Item 2</div>
+        <div class="menu-item" data-info="This is Item 3">Item 3</div>
+        <div class="menu-item" data-info="This is Item 4">Item 4</div>
+    </div>
+    <div class="info">
+        Hover over a menu item to see details
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('.menu-item').hover(
+                function() {
+                    var infoText = $(this).data('info');
+                    $('.info').text(infoText);
+                    $(this).css('background', '#bbb');
+                }, 
+                function() {
+                    $(this).css('background', '');
+                }
+                );
+            });
+        </script>
+        </body>
+        </html>
+        

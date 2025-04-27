@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanpur Travels</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+
+            overflow-x: hidden;
+            margin: 0;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 0;
+            animation: changeBackground 60s infinite;
+        }
+
+        @keyframes changeBackground {
+            0% { background-image: url('./src/image1.jpg'); }
+            33% { background-image: url('./src/image2.jpg'); }
+            66% { background-image: url('./src/image3.jpg'); }
+            100% { background-image: url('./src/image1.jpg'); }
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        .navbar-logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .navbar-links {
+            padding-right: 20px;
+            display: flex;
+            gap: 15px;
+        }
+        
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .navbar-links a:hover{
+            color: #939caa;
+        }
+
+        .header-text {
+            color: white;
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            size: 20px;
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight:bolder;
+            font-size: 3rem;
+        }
+
+        .content {
+            position: relative;
+            margin-top: 100vh;
+            background-color: white;
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInContent 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeInContent {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        #tint{
+            background-color: black;
+            opacity: 0.5;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+        #subtext{
+            font-size:1rem;
+            font-weight: 100;
+            padding-top: 10px;
+        }
+
+        .background-color-section {
+            background-color: #f4f4f4;
+            padding: 50px 0;
+        }
+        .quote{
+            font-size: 1.5rem;
+            font-style: italic;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        .heading{
+            font-size: 2rem;
+            padding-top: 15px;
+            padding-bottom: 5px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        }
+        .data{
+            text-align: justify;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+    </div>
+    <div id="tint">
+        
+    </div>
+    
+    <div class="navbar">
+        <div class="navbar-logo"><img src="./src/logo1.png" height="23px"></div>
+        <div class="navbar-links">
+            <a style="color: #939caa" href="./HomePage.html">Home</a>
+            <a href="./Heritage.html">Heritage</a>
+            <a href="./Hotel.html">Hotel Booking</a>
+            <a href="./Gallery.html">Gallery</a>
+        </div>
+    </div>
+
+    <div class="header-text">
+        Explore the Unknown
+        <p id="subtext">Discover the heart of Uttar Pradesh in Kanpur – where culture, history, and the Ganges converge.</p>
+    </div>
+
+    <div class="background-color-section">
+        <div class="content">
+            <div class="quote">
+            "Leather City of the World, Manchester of India"</div>
+<div class="heading">           
+Kanpur Tourism</div> 
+<div class="data">
+Situated on the banks of Ganges, Kanpur is one of the largest cities of Uttar Pradesh, and the industrial capital of the state known for its chemical, textile and leather industries. Known for its immense human resource, it has also earned a reputation as the eleventh most populous agglomeration in India. Kanpur has established itself in the pages of history, being a part of major dynasties and an important British garrison town until 1947.</div>
+<div class="data">
+The bloody tale of the capture of Kanpur by various rulers is recorded all over the city in different architectures, museums, books and by the oral legends. Kanpur was believed to have been established by king Hindu Singh Chandel of Sachendi, initially naming it as 'Kanhiyapur' because it was said to be founded on the birthday of the Hindu god, Lord Krishna. Later on, in its way to acquire the name ‘Kanpur’, it was known as Kanhapur, Caunpoore and Cawnpore. Many old texts suggest that it derived its name from the legendary character of Mahabharata, Karna, as it was called Karnapur too.
+</div>
+<div class="data">
+Kanpur is a city where one finds a perfect blend of history, architecture, commerce and culture with authentic cuisines, traditional theatrical art and an amalgamation of two eras running parallelly. Having played a significant role in the first Indian war of Independence, Kanpur houses several historical tourists’ spots. Being situated on the banks of Ganges, it serves as a pilgrimage destination too. Apart from this, the IIT-Kanpur is a major educational institute of the region and one of the country’s best.
+</div>
+        </div>
+    </div>
+</body>
+</html>

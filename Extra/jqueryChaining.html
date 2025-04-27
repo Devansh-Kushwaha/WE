@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script src="jquery-3.7.1.js">
+        
+  </script>
+  </head>
+  <body>
+    <button id="hide" style="height: fit-content; width:fit-content"></button>
+    <button id="show" style="height: fit-content; width:fit-content"></button>
+    <P>
+         Shadow forces
+    </P>
+    <script>
+        $(document).ready(function(){            //Jquery works on DOM structure, so we need to write this first always
+            $('#hide').click(function(){
+                
+                $("p").css("color","red").slideUp(2000).slideDown(3000)
+                
+            })
+            $('#show').click(function(){
+                $("p").show();
+            })
+        })
+    </script>
+  </body>
+</html>

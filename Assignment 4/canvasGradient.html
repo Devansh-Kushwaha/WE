@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+  </head>
+  <body>
+    <canvas id="gradientRectangle" width="600" height="400" style="border:1px solid #000000;">
+        
+    </canvas>
+
+    <script>
+        var c=document.getElementById("gradientRectangle");
+        
+        var ctx=c.getContext("2d")
+        var gradient = ctx.createLinearGradient(0, 0, 600, 0);
+        gradient.addColorStop(0, "red");
+        gradient.addColorStop(1, "pink");
+        gradient.addColorStop(0.5, "blue");
+
+        ctx.fillStyle=gradient;
+        ctx.fillRect(0, 0, 600, 400);
+
+    </script>
+  </body>
+</html>
