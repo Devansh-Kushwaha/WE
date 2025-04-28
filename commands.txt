@@ -15,3 +15,8 @@ sudo apt install curl
  iex "& {$(irm get.scoop.sh)} -RunAsAdmin"
  scoop install https://raw.githubusercontent.com/aandrew-me/tgpt/main/tgpt.json
 choco install tgpt
+
+npm install -g @angular/cli
+ng new my-app
+cd my-app
+ng serve
